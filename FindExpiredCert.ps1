@@ -22,7 +22,7 @@ $attachment = New-Object System.Net.Mail.Attachment($filenameAndPath)
 $SMTPMessage.Attachments.Add($attachment)
 $SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 587) 
 $SMTPClient.EnableSsl = $true 
-$SMTPClient.Credentials = New-Object System.Net.NetworkCredential(“armando.zincke@outlook.com”, “Baseball1499%%”); 
+$SMTPClient.Credentials = New-Object System.Net.NetworkCredential(“email”, “passwor”); 
 $SMTPClient.Send($SMTPMessage)
 
 
