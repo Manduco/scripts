@@ -1,6 +1,11 @@
+include version.py
+
+from version import get_version
+
 print(" --- Make configs ---")
 
 version = 0.0
+version= get_version()
 localIP = raw_input("Enter Local IP : ")
 GetHost = " "
 
@@ -35,7 +40,7 @@ def secure():
         +"logging buffered 128000 \n"
         +"enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1\n"
         +"enable password something\n"+"!\n")
-    
+
 
 
 
