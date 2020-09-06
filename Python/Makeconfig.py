@@ -1,11 +1,8 @@
-include version.py
-
-from version import get_version
 
 print(" --- Make configs ---")
 
 version = 0.0
-version= get_version()
+
 
 localIP = raw_input("Enter Local IP : ")
 GetHost = " "
@@ -40,13 +37,14 @@ def secure():
         +"enable password something\n"+"!\n")
 
 def config2():
-    f.write( "aaa new-model \n"+"!\n"+"aaa authentication login default local\n"
-            +"aaa authentication login sdm_vpn_xauth_ml_1 local "
-            +"aaa authorization exec default local
-            +aaa authorization network sdm_vpn_group_ml_1 local !
-            +aaa session-id common !
-            +dot11 syslog no ip source-route !
-            +ip cef !")
+    f.write( "aaa new-model \n"+"!\n"
+            +"aaa authentication login default local\n"
+            +"aaa authentication login sdm_vpn_xauth_ml_1 local \n"
+            +"aaa authorization exec default local \n"
+            +"aaa authorization network sdm_vpn_group_ml_1 local \n!\n"
+            +"aaa session-id common \n!\n"
+            +"dot11 syslog no ip source-route \n!\n"
+            +"ip cef \n!\n")
 
 
 
