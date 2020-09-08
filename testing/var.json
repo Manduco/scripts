@@ -1,0 +1,22 @@
+{
+    "vpnSubnet": {
+        "cisco28": [
+            "192.168.1.0/24",
+            "192.168.2.0/24",
+            "192.168.3.0/24"
+        ],
+        "cisco58": [
+            "192.168.10.0/24",
+            "192.168.20.0/24",
+            "192.168.30.0/24"
+        ]
+    },
+    "routerDescription": {
+        "cisco28": "Discription of router28",
+        "cisco58": "Description of router58"
+    },
+    "defaultGateway": {
+        "cisco28": "1.1.1.1",
+        "cisco58": "2.2.2.2"
+    }
+}
