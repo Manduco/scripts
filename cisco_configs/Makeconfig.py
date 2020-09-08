@@ -1,5 +1,5 @@
 
-print(" --- Make configs ---")
+print(" --- Make configs --- ")
 
 version = 0.0
 

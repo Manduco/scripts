@@ -1,11 +1,10 @@
 import json
 
-config = require('vars.json')
-
-
-
 with open('var.json') as f:
   data = json.load(f)
+
+print("---creating cisco config file---")
+print("Version: "+ str(data["code"]["version"]))
 
 hostname = input("enter host name :")
 
