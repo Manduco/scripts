@@ -15,5 +15,6 @@ hostname = input("enter host name :")
 
 if hostname in data["host"]:
     print("hostname found")
+    print("Would like to create script with current settings?")
 else:
     print("hostname was not found")

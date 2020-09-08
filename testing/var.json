@@ -1,6 +1,6 @@
 {
   "code": {
-    "version": 1.0,
+    "version": 1.1,
     "Auther": "Armando"
   },
   "vpnSubnet": {
@@ -24,7 +24,11 @@
     "cisco58": "2.2.2.2"
   },
   "host": {
-    "cisco28": "test",
-    "cisco58": "Armando"
+    "cisco28": "info on cisco23",
+    "cisco58": "info on cisco58"
+  },
+  "device": {
+    "user1": "admin",
+    "user2": "read-only"
   }
 }

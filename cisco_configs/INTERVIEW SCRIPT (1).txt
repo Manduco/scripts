@@ -4,14 +4,14 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname cisco28
+hostname cisco28 --
 !
 boot-start-marker
 boot-end-marker
 !
 logging buffered 128000
-enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1
-enable password something
+enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1 --not password
+enable password something                      --save other .env file
 !
 aaa new-model
 !
@@ -29,15 +29,15 @@ ip cef
 !
 no ip bootp server
 ip domain name firma.com
-ip host client-vpn 10.1.1.133
-ip name-server 10.1.1.33
+ip host client-vpn 10.1.1.133 --
+ip name-server 10.1.1.33 --
 !
 multilink bundle-name authenticated
 !
 license udi pid CISCO2821 sn FCZ012345KM
-username user1 password 0 kamil1
-username spravce privilege 15 password 0 kamil15
-username user2 password 0 kamil2
+username user1 password 0 kamil1 --
+username spravce privilege 15 password 0 kamil15 --
+username user2 password 0 kamil2 --
 !
 redundancy
 !
@@ -103,7 +103,7 @@ ip http secure-server
 !
 ip route 0.0.0.0 0.0.0.0 10.1.1.1
 !
-access-list 10 remark Prisup na router
+access-list 10 remark Prisup na router ---
 access-list 10 remark Pristup na router
 access-list 10 permit 10.1.1.0 0.0.0.255
 access-list 10 permit 192.168.201.0 0.0.0.255
@@ -123,7 +123,7 @@ password kamil
 transport input all
 !
 scheduler allocate 20000 1000
-ntp server 10.1.1.1
+ntp server 10.1.1.1 --
 !
 webvpn context Default_context
 ssl authenticate verify all
