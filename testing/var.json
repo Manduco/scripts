@@ -1,7 +1,7 @@
 {
   "code": {
     "version": 1.1,
-    "Auther": "Armando"
+    "Author": "Armando"
   },
   "vpnSubnet": {
     "cisco28": [
@@ -30,5 +30,9 @@
   "device": {
     "user1": "admin",
     "user2": "read-only"
+  },
+  "Nameserver": {
+    "cisco28": "192.10.10.10",
+    "cisco58": "192.10.10.20"
   }
 }
