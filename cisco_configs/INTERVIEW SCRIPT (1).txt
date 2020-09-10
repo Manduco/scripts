@@ -1,16 +1,16 @@
-version 12.4
+version 12.4            -- current device version
 no service pad
 service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname cisco28 --
+hostname cisco28        --
 !
 boot-start-marker
 boot-end-marker
-!
-logging buffered 128000
-enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1 --not password
+!                       ---> comment
+logging buffered 128000 ------> maybe
+enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1 --not password -type of encyp
 enable password something                      --save other .env file
 !
 aaa new-model
@@ -28,7 +28,7 @@ no ip source-route
 ip cef
 !
 no ip bootp server
-ip domain name firma.com
+ip domain name firma.com --
 ip host client-vpn 10.1.1.133 --
 ip name-server 10.1.1.33 --
 !
