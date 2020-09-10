@@ -1,0 +1,38 @@
+{
+  "code": {
+    "version": 15.8,
+    "scirptAuthor": "Armando"
+  },
+  "vpnSubnet": {
+    "cisco28": [
+      "192.168.1.0/24",
+      "192.168.2.0/24",
+      "192.168.3.0/24"
+    ],
+    "cisco58": [
+      "192.168.10.0/24",
+      "192.168.20.0/24",
+      "192.168.30.0/24"
+    ]
+  },
+  "routerDescription": {
+    "cisco28": "Discription of router28",
+    "cisco58": "Description of router58"
+  },
+  "defaultGateway": {
+    "cisco28": "1.1.1.1",
+    "cisco58": "2.2.2.2"
+  },
+  "host": {
+    "cisco28": "info on cisco23",
+    "cisco58": "info on cisco58"
+  },
+  "device": {
+    "user1": "admin",
+    "user2": "read-only"
+  },
+  "Nameserver": {
+    "cisco28": "192.10.10.10",
+    "cisco58": "192.10.10.20"
+  }
+}

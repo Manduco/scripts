@@ -1,10 +1,10 @@
-version 12.4            -- current device version
-no service pad
-service timestamps debug datetime msec
+version 12.4            --> current device version
+no service pad     --- will leave as if no router is using X.25
+service timestamps debug datetime msec ---- service timestamps type datetime [msec] [localtime] [show-timezone]
 service timestamps log datetime msec
-no service password-encryption
+no service password-encryption     --- make var ask for yes/no
 !
-hostname cisco28        --
+hostname cisco28        -->
 !
 boot-start-marker
 boot-end-marker
@@ -15,10 +15,10 @@ enable password something                      --save other .env file
 !
 aaa new-model
 !
-aaa authentication login default local
-aaa authentication login sdm_vpn_xauth_ml_1 local
+aaa authentication login default local  -- canask for to allow willleave as is
+aaa authentication login sdm_vpn_xauth_ml_1 local   -----input
 aaa authorization exec default local
-aaa authorization network sdm_vpn_group_ml_1 local
+aaa authorization network sdm_vpn_group_ml_1 local    ----input
 !
 aaa session-id common
 !
@@ -74,8 +74,8 @@ crypto dynamic-map SDM_DYNMAP_1 1
 set transform-set 3DES-MD5
 reverse-route
 !
-crypto map SDM_CMAP_1 client authentication list sdm_vpn_xauth_ml_1
-crypto map SDM_CMAP_1 isakmp authorization list sdm_vpn_group_ml_1
+crypto map SDM_CMAP_1 client authentication list sdm_vpn_xauth_ml_1 ----
+crypto map SDM_CMAP_1 isakmp authorization list sdm_vpn_group_ml_1  ----
 crypto map SDM_CMAP_1 client configuration address respond
 crypto map SDM_CMAP_1 65535 ipsec-isakmp dynamic SDM_DYNMAP_1
 !
@@ -83,16 +83,16 @@ interface Loopback10
 description For VPN Client
 ip address 192.168.201.1 255.255.255.0
 !
-interface GigabitEthernet0/0
+interface GigabitEthernet0/0  ---
 description $FW_OUTSIDE$
-ip address 10.1.1.220 255.255.255.0
+ip address 10.1.1.220 255.255.255.0 ---
 duplex auto
 speed auto
 crypto map SDM_CMAP_1
 !
-interface GigabitEthernet0/1
+interface GigabitEthernet0/1 --
 description $ETH-LAN$$FW_INSIDE$
-ip address 192.168.220.1 255.255.255.0
+ip address 192.168.220.1 255.255.255.0 ---
 duplex auto
 speed auto
 !
@@ -101,15 +101,15 @@ ip forward-protocol nd
 ip http server
 ip http secure-server
 !
-ip route 0.0.0.0 0.0.0.0 10.1.1.1
+ip route 0.0.0.0 0.0.0.0 (10.1.1.1  ---- var maybe gateway
 !
-access-list 10 remark Prisup na router ---
+access-list 10 remark Prisup na router
 access-list 10 remark Pristup na router
-access-list 10 permit 10.1.1.0 0.0.0.255
-access-list 10 permit 192.168.201.0 0.0.0.255
-access-list 10 permit 192.168.200.0 0.0.0.255
+access-list 10 permit 10.1.1.0 0.0.0.255     --- 10 permit/den ip wildcard-invsubnet
+access-list 10 permit 192.168.201.0 0.0.0.255 --- 10 permit/den ip wildcard-invsubnet
+access-list 10 permit 192.168.200.0 0.0.0.255 --- 10 permit/den ip wildcard-invsubnet
 access-list 100 remark SDM_ACL Category=4
-access-list 100 permit ip 192.168.201.0 0.0.0.255 192.168.200.0 0.0.0.255
+access-list 100 permit ip 192.168.201.0 0.0.0.255 192.168.200.0 0.0.0.255  --- arraylist
 no cdp run
 !
 control-plane

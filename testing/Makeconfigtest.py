@@ -1,4 +1,5 @@
 import json
+import getpass
 
 #list of vars
 version = 0.0
@@ -23,19 +24,22 @@ def GetJsonData():
         if (answer == 'y'):
             print("do something")
         else:
-            print("making configs with current data")
+            print("run something")
     else:
         print("hostname was not found")
 
-def GetUserInput():
-    print("getuser input")
+def Display_Current_Var():
+    print("display current settings")
+def Get_User_Input():
+    x = 0
+    esp = input ("encrypt service password? y/n")
+    while not int(x) in range(1,10000):
+        x = input("logging buffered :")#choose a shift
+    sped = getpass.getpass('secret pass:')
+    pswd = getpass.getpass('Password:')
 
-def writef():
-    f.write("IP given" + localIP +"\n")#
-def closef():
+    print("x:",x ,pswd)
 
-    f.close()
-    print ("Configs Created")
 
 #cisco cmd list
 def config1():
@@ -52,7 +56,7 @@ def secure():
         +"logging buffered 128000 \n"
         +"enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1\n"
         +"enable password something\n"+"!\n")
-        #remove both secret 5 key and password
+            #remove both secret 5 key and password
 def config2():
     f.write( "aaa new-model \n"+"!\n"
             +"aaa authentication login default local\n"
@@ -76,7 +80,6 @@ def config2():
             +"!\n"
             +"redundancy \n"
             +"! \n")
-
 def crypto():
     f.write( "crypto ikev2 diagnose error 50 \n"
     +"!\n"
@@ -116,7 +119,6 @@ def crypto():
     +"crypto map SDM_CMAP_1 client configuration address respond \n"
     +"crypto map SDM_CMAP_1 65535 ipsec-isakmp dynamic SDM_DYNMAP_1 \n"
     +"!\n")
-#end cisco cmd list
 def config3():
     f.write( "!"
         +"redundancy\n"
@@ -211,6 +213,10 @@ def config3():
         +"no inservice\n"
         +"!\n"
         +"end")
+def closef():
+
+    f.close()
+    print ("Configs Created")
 
 
 if __name__ == "__main__":
@@ -218,11 +224,11 @@ if __name__ == "__main__":
 
     GetJsonData()
     #write()
+    Get_User_Input()
+    #config1()
+    #secure()
+    #config2()
+    #crypto()
+    #config3()
 
-    config1()
-    secure()
-    config2()
-    crypto()
-    config3()
-
-    #close()
+    closef()
