@@ -18,29 +18,56 @@ def GetJsonData():
 
     version = data["code"]["version"]
     hostname = input("enter host name :")
-    
+
     if hostname in data["host"]:
         print("-hostname found")
         answer = input("create configs with current settings? y/n : ")
         if (answer == 'y'):
-            print("do something")
+            Display_Current_Var()
         else:
-            print("run something")
+            print("")
     else:
         print("hostname was not found")
 
 def Display_Current_Var():
     print("display current settings")
 def Get_User_Input():
-    x = 0
-    esp = input ("encrypt service password? y/n")
-    while not int(x) in range(1,10000):
-        x = input("logging buffered value:")#choose a shift
-    sped = getpass.getpass('secret pass:')
-    pswd = getpass.getpass('Password:')
 
-    print("x:",x ,pswd)
+    global Final_epass, Final_pass, esp_answer
+    global buffered_val
 
+
+    buffered_val = 0
+    Temp_sped1,Temp_sped2,Temp_pswd1,Temp_pswd2 = "x","z","x","z"
+    Final_epass, Final_pass = "",""
+
+    esp = input ("encrypt service password? y/n :")
+    if (esp == "y"):
+        esp_answer = " "
+    else:
+        esp_answer = "no "
+
+    while not int(buffered_val) in range(1,12001):
+        buffered_val = input("logging buffered value, Lim: 12000 ")#choose a shift
+
+    # while(Temp_sped1 != Temp_sped2):
+    #     Temp_sped1 = getpass.getpass('secret pass:')
+    #     Temp_sped2 = getpass.getpass('renter secret pass:')
+    #     if(Temp_sped1 != Temp_sped2):
+    #         print("-------password does not match------")
+
+    while(Temp_pswd1 != Temp_pswd2):
+        Temp_pswd1 = getpass.getpass('Password:')
+        Temp_pswd2 = getpass.getpass('Renter Password:')
+        if(Temp_pswd1 != Temp_pswd2):
+            print("-------password does not match------")
+
+    # if(Temp_sped1 == Temp_sped2):
+    #     Final_epass = Temp_sped1
+    if(Temp_pswd1 == Temp_pswd2):
+        Final_pass = Temp_pswd1
+
+    #print("x:",x ,pswd)
 
 #cisco cmd list
 def config1():
@@ -48,13 +75,14 @@ def config1():
             + "no service pad service \n"
             + "timestamps debug datetime msec \n"
             + "service timestamps log datetime msec \n"
-            + "no service password-encryption \n"+
+            + esp_answer + "service password-encryption \n"+
             "!\n")
+
 def secure():
     f.write( "hostname "+hostname+"\n" + "!\n"
         +"boot-start-marker\n"
         +"boot-end-marker\n" +"!\n"
-        +"logging buffered 128000 \n"
+        +"logging buffered " + buffered_val +"\n"
         +"enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1\n"
         +"enable password something\n"+"!\n")
             #remove both secret 5 key and password

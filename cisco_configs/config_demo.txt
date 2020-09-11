@@ -1,15 +1,15 @@
-version 1.8
+version 15.8
 no service pad service 
 timestamps debug datetime msec 
 service timestamps log datetime msec 
-no service password-encryption 
+ service password-encryption 
 !
 hostname cisco28
 !
 boot-start-marker
 boot-end-marker
 !
-logging buffered 128000 
+logging buffered 1000
 enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1
 enable password something
 !
