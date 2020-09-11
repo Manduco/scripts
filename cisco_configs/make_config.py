@@ -6,8 +6,6 @@ version = 0.0
 GetHost = "null"
 hostname = "null"
 
-
-
 print("---config script---")
 #opens or creates config txt file
 f = open("config_demo_py.txt", "w")
@@ -32,8 +30,8 @@ def GetJsonData():
         print("hostname was not found")
 
 def Display_Current_Var():
-    print("pulls data from json here")
     check_vals_b4W()
+    print("pulls data from json here")
 
 def check_vals_b4W():
 
