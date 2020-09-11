@@ -1,19 +1,46 @@
-﻿
+
 # giant string need to break this down:
-$config_Main_Text = 'version 12.4 ' + "`n" +
+
+
+$host_name = Read-Host " enter Hostname"
+$buffered_val = Read-Host " enter logging buffered value, Lim: 12000 "
+
+$Temp_pswd1 = Read-Host "Enter device services password " -AsSecureString
+$Temp_pswd2 = Read-Host "Renter Password " -AsSecureString
+
+if($Temp_pswd1 -eq $Temp_pswd2) {
+  $Final_pass = $Temp_pswd1
+}else {
+  $Final_pass = "|null|"
+}
+
+
+$domain_name = Read-Host "enter domain name "
+$host_client_vpn_IP = Read-Host "enter VPN IP "
+$Name_server_IP = Read-Host "enter name server IP "
+
+$license_udi_pid = Read-Host "enter product ID "
+$license_sn = Read-Host "enter device Serial number "
+$username1 = Read-Host "enter a username for this device "
+$username1PW = Read-Host 'Enter a password for '$username1' ' -AsSecureString
+$username2 = Read-Host "enter a anoter username for this device "
+$username2PW = Read-Host 'Enter a password for '$username2' ' -AsSecureString
+
+
+$config_Main_Text = 'version 15.8' + "`n" +
 'no service pad ' + "`n" +
 'service timestamps debug datetime msec ' + "`n" +
 'service timestamps log datetime msec ' + "`n" +
 'no service password-encryption ' + "`n" +
 '! ' + "`n" +
-'hostname cisco28 ' + "`n" +
+'hostname ' + $host_name +"`n" +
 '! ' + "`n" +
 'boot-start-marker ' + "`n" +
 'boot-end-marker ' + "`n" +
 '! ' + "`n" +
-'logging buffered 128000 ' + "`n" +
+'logging buffered ' + $buffered_val + "`n" +
 'enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1 ' + "`n" +
-'enable password something ' + "`n" +
+'enable password ' +  $Final_pass + "`n" +
 '! ' + "`n" +
 'aaa new-model ' + "`n" +
 '! ' + "`n" +
@@ -30,16 +57,16 @@ $config_Main_Text = 'version 12.4 ' + "`n" +
 'ip cef ' + "`n" +
 '! ' + "`n" +
 'no ip bootp server ' + "`n" +
-'ip domain name firma.com ' + "`n" +
-'ip host client-vpn 10.1.1.133 ' + "`n" +
-'ip name-server 10.1.1.33 ' + "`n" +
+'ip domain name ' + $domain_name +"`n" +
+'ip host client-vpn ' + $host_client_vpn_IP + "`n" +
+'ip name-server ' + $Name_server_IP + "`n" +
 '! ' + "`n" +
 'multilink bundle-name authenticated ' + "`n" +
 '! ' + "`n" +
-'license udi pid CISCO2821 sn FCZ012345KM ' + "`n" +
-'username user1 password 0 kamil1 ' + "`n" +
+'license udi pid ' + $license_udi_pid +' sn ' + $license_sn +"`n" +
+'username ' + $username1 +' password 0 ' + $username1PW + "`n" +
 'username spravce privilege 15 password 0 kamil15 ' + "`n" +
-'username user2 password 0 kamil2 ' + "`n" +
+'username ' + $username2 +' password 0 ' + $username2PW +"`n" +
 '! ' + "`n" +
 'redundancy ' + "`n" +
 '! ' + "`n" +
@@ -139,4 +166,4 @@ $config_Main_Text = 'version 12.4 ' + "`n" +
 # Create file:
 
 #prints to text file
-$config_Main_Text > 'file.txt'
+$config_Main_Text > 'config_demo_ps.txt'

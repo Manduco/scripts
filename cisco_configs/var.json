@@ -34,5 +34,15 @@
   "Nameserver": {
     "cisco28": "192.10.10.10",
     "cisco58": "192.10.10.20"
+  },
+  "license_udi_pid": {
+    "cisco28": "CISCO2821",
+    "cisco58": "cisco5821"
+  },
+  "license_sn": {
+    "cisco28": "FCZ012345KM",
+    "cisco58": "KMZ012345FM"
   }
+
+
 }

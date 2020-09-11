@@ -2,16 +2,16 @@ version 15.8
 no service pad service 
 timestamps debug datetime msec 
 service timestamps log datetime msec 
- service password-encryption 
+no service password-encryption 
 !
-hostname cisco28
+hostname hostname
 !
 boot-start-marker
 boot-end-marker
 !
 logging buffered 1000
 enable secret 5 $1$wgM4$hnI4TqvqWv8EwjDWUgsjQ1
-enable password something
+enable password asd
 !
 aaa new-model 
 !
@@ -27,14 +27,16 @@ dot11 syslog no ip source-route
 ip cef 
 !
 no ip bootp server 
-ip domain name firma.com 
-
-ip host client-vpn 10.1.1.133ip name-server 10.1.1.33!
+ip domain name test.com 
+ip host client-vpn 10.10.10.1
+ip name-server 125.10.10.10
+!
 multilink bundle-name authenticated
-!license udi pid CISCO2821 sn FCZ012345KM 
-username user1 password 0 kamil1 
+! 
+license udi pid asd123 sn 123123asdasdas32
+username user1 password 0 pass 
 username spravce privilege 15 password 0 kamil15 
-username user2 password 0 kamil2 
+username user2 password 0 pass 
 !
 redundancy 
 ! 
@@ -76,7 +78,7 @@ crypto map SDM_CMAP_1 isakmp authorization list sdm_vpn_group_ml_1
 crypto map SDM_CMAP_1 client configuration address respond 
 crypto map SDM_CMAP_1 65535 ipsec-isakmp dynamic SDM_DYNMAP_1 
 !
-!redundancy
+redundancy
 !
 crypto ikev2 diagnose error 50
 !
