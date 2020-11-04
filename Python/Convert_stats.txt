@@ -1,0 +1,15 @@
+|____Stats for convert wav script_____|
+|___by Zincke, Armando on 09/17/2020__|
+|_____________________________________|
+none .wav converted: 0 2020-9-17 16:21:43 
+Folder: 129578200001 .wav converted: 11 on: 2020-09-17 17:00:47 
+Folder: 129578200001 .wav converted: 11 on: 2020-09-17 17:03:33 
+Folder: 129578200002 .wav converted: 11 on: 2020-09-17 17:03:40 
+Folder: 129578200003 .wav converted: 11 on: 2020-09-17 17:03:47 
+Folder: 129578200004 .wav converted: 11 on: 2020-09-17 17:03:54 
+Folder: 129578200005 .wav converted: 11 on: 2020-09-17 17:04:01 
+Folder: 129578200001 .wav converted: 11 on: 2020-09-21 11:47:00 
+Folder: 129578200002 .wav converted: 22 on: 2020-09-21 11:47:08 
+Folder: 129578200003 .wav converted: 33 on: 2020-09-21 11:47:15 
+Folder: 129578200004 .wav converted: 44 on: 2020-09-21 11:47:22 
+Folder: 129578200005 .wav converted: 55 on: 2020-09-21 11:47:29 
