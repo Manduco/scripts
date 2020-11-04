@@ -1,3 +1,9 @@
-
+# made by manduco
+# auto mouse test
 import pyautogui
-pyautogui.moveTo(000, 000, duration = 1)
+
+
+
+
+print(pyautogui.size())
+pyautogui.moveTo(750, 820, 0)
